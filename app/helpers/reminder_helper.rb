@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-module RemindersHelper
+module ReminderHelper
   def format_participant_list(participants)
     participants.sort.map { |p| link_to_user p.user }.join('; ').html_safe
   end
