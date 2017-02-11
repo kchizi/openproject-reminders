@@ -17,24 +17,13 @@
 #
 # See doc/COPYRIGHT.md for more details.
 #++
-class CreatereminderJournals < ActiveRecord::Migration
-  def change
-    create_table :reminder_journals do |t|
-      t.integer :journal_id, null: false
-      t.string :title
-      t.integer :author_id
-      t.integer :project_id
-      t.string :location
-      t.datetime :start_time
-      t.float :duration
-    end
 
-    create_table :reminder_content_journals do |t|
-      t.integer :journal_id, null: false
-      t.integer :reminder_id
-      t.integer :author_id
-      t.text :text
-      t.boolean :locked
-    end
+class RemovereminderRoleIdFromReminderParticipants < ActiveRecord::Migration
+  def up
+    remove_column :reminder_participants, :reminder_role_id
+  end
+
+  def down
+    add_column :reminder_participants, :reminder_role_id, :integer
   end
 end
