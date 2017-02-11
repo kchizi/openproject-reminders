@@ -130,13 +130,13 @@ class RemindersController < ApplicationController
 
   def find_project
     @project = Project.find(params[:project_id])
-    @reminder = reminder.new
+    @reminder = Reminder.new
     @reminder.project = @project
     @reminder.author = User.current
   end
 
   def find_reminder
-    @reminder = reminder
+    @reminder = Reminder
                .includes([:project, :author, { participants: :user }, :agenda, :minutes])
                .find(params[:id])
     @project = @reminder.project
