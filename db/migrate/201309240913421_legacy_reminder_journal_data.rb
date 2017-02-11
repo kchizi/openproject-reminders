@@ -22,7 +22,7 @@
 
 require Rails.root.join('db', 'migrate', 'migration_utils', 'legacy_journal_migrator').to_s
 
-class LegacyreminderJournalData < ActiveRecord::Migration
+class LegacyReminderJournalData < ActiveRecord::Migration
   def up
     migrator.run
   end

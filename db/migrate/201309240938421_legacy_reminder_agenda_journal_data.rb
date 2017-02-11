@@ -22,8 +22,8 @@
 
 require Rails.root.join('db', 'migrate', 'migration_utils', 'legacy_journal_migrator').to_s
 
-class LegacyreminderAgendaJournalData < ActiveRecord::Migration
-  class UnsupportedreminderAgendaJournalCompressionError < ::StandardError
+class LegacyReminderAgendaJournalData < ActiveRecord::Migration
+  class UnsupportedReminderAgendaJournalCompressionError < ::StandardError
   end
 
   def up
@@ -35,7 +35,7 @@ class LegacyreminderAgendaJournalData < ActiveRecord::Migration
   end
 
   def migrator
-    @migrator ||= Migration::LegacyJournalMigrator.new 'reminderAgendaJournal', 'reminder_content_journals' do
+    @migrator ||= Migration::LegacyJournalMigrator.new 'ReminderAgendaJournal', 'reminder_content_journals' do
 
       self.journable_class = 'ReminderContent'
 
@@ -45,7 +45,7 @@ class LegacyreminderAgendaJournalData < ActiveRecord::Migration
           # Why is that checked but than the compression is not used in any way to read the data
           if !to_insert.has_key?('compression')
 
-            raise UnsupportedreminderAgendaJournalCompressionError, <<-MESSAGE.split("\n").map(&:strip!).join(' ') + "\n"
+            raise UnsupportedReminderAgendaJournalCompressionError, <<-MESSAGE.split("\n").map(&:strip!).join(' ') + "\n"
               There is a reminderAgenda journal that contains data in an
               unsupported compression: #{compression}
             MESSAGE
