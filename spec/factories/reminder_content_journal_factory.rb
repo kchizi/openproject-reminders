@@ -19,6 +19,6 @@
 #++
 
 FactoryGirl.define do
-  factory :journal_reminder_content_journal, class: Journal::reminderContentJournal do
+  factory :journal_reminder_content_journal, class: Journal::ReminderContentJournal do
   end
 end

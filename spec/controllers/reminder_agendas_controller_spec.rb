@@ -20,7 +20,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe reminderAgendasController, type: :controller do
+describe ReminderAgendasController, type: :controller do
   let(:reminder) { FactoryGirl.create(:reminder) }
   let(:user) { FactoryGirl.create(:admin) }
 

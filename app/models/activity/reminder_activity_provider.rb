@@ -19,7 +19,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class Activity::reminderActivityProvider < Activity::BaseActivityProvider
+class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
   acts_as_activity_provider type: 'reminders',
                             activities: [:reminder, :reminder_content],
                             permission: :view_reminders

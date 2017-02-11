@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class reminderParticipant < ActiveRecord::Base
+class ReminderParticipant < ActiveRecord::Base
   belongs_to :reminder
   belongs_to :user
 

@@ -20,7 +20,7 @@
 
 require 'icalendar'
 
-class reminderMailer < UserMailer
+class ReminderMailer < UserMailer
   def content_for_review(content, content_type, address)
     @reminder = content.reminder
     @content_type = content_type
@@ -31,11 +31,11 @@ class reminderMailer < UserMailer
     subject = "[#{@reminder.project.name}] #{I18n.t(:"label_#{content_type}")}: #{@reminder.title}"
     mail to: address, subject: subject
   end
-  
+
   def icalendar_notification(content, content_type, address)
     @reminder = content.reminder
     @content_type = content_type
-    
+
     open_project_headers 'Project' => @reminder.project.identifier,
                          'reminder-Id' => @reminder.id
     headers['Content-Type'] = 'text/calendar; charset=utf-8; method="PUBLISH"; name="reminder.ics"'

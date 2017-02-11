@@ -19,7 +19,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class Journal::reminderContentJournal < Journal::BaseJournal
+class Journal::ReminderContentJournal < Journal::BaseJournal
   self.table_name = 'reminder_content_journals'
 
   belongs_to :reminder

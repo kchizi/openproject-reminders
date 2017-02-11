@@ -19,7 +19,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class Journal::reminderJournal < Journal::BaseJournal
+class Journal::ReminderJournal < Journal::BaseJournal
   self.table_name = 'reminder_journals'
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'

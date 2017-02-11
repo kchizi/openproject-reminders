@@ -20,7 +20,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe reminderMailer, type: :mailer do
+describe ReminderMailer, type: :mailer do
   let(:role) { FactoryGirl.create(:role, permissions: [:view_reminders]) }
   let(:project) { FactoryGirl.create(:project) }
   let(:author) { FactoryGirl.create(:user, member_in_project: project, member_through_role: role) }
@@ -40,7 +40,7 @@ describe reminderMailer, type: :mailer do
   end
 
   describe 'content_for_review' do
-    let(:mail) { reminderMailer.content_for_review reminder_agenda, 'agenda', author.mail }
+    let(:mail) { ReminderMailer.content_for_review reminder_agenda, 'agenda', author.mail }
     # this is needed to call module functions from Redmine::I18n
     let(:i18n) do
       class A

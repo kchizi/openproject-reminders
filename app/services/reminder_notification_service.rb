@@ -1,4 +1,4 @@
-class reminderNotificationService
+class ReminderNotificationService
 
   attr_reader :reminder, :content_type
 

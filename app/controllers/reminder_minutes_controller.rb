@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class reminderMinutesController < reminderContentsController
+class ReminderMinutesController < reminderContentsController
   menu_item :reminders
 
   private

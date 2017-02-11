@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class reminderAgenda < reminderContent
+class ReminderAgenda < reminderContent
   # TODO: internationalize the comments
   def lock!(user = User.current)
     self.comment = 'Agenda closed'

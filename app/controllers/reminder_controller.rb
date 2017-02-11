@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class remindersController < ApplicationController
+class RemindersController < ApplicationController
   around_action :set_time_zone
   before_action :find_project, only: [:index, :new, :create]
   before_action :find_reminder, except: [:index, :new, :create]

@@ -20,7 +20,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe reminderMinutesController, type: :controller do
+describe ReminderMinutesController, type: :controller do
   let(:reminder) { FactoryGirl.create(:reminder) }
   let(:user) { FactoryGirl.create(:admin) }
 

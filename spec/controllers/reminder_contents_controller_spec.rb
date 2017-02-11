@@ -20,7 +20,7 @@
 
 require 'spec_helper'
 
-describe reminderContentsController do
+describe ReminderContentsController do
   let(:role) { FactoryGirl.create(:role, permissions: [:view_reminders]) }
   let(:project) { FactoryGirl.create(:project) }
   let(:author) { FactoryGirl.create(:user, member_in_project: project, member_through_role: role) }

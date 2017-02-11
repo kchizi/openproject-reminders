@@ -20,7 +20,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe 'reminderMinutes', type: :model do
+describe 'ReminderMinutes', type: :model do
   before do
     @min = FactoryGirl.build :reminder_minutes
   end

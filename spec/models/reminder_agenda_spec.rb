@@ -20,7 +20,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe 'reminderAgenda', type: :model do
+describe 'ReminderAgenda', type: :model do
   before(:each) do
     @a = FactoryGirl.build :reminder_agenda, text: "Some content...\n\nMore content!\n\nExtraordinary content!!"
   end

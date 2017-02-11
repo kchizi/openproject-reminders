@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class reminder < ActiveRecord::Base
+class Reminder < ActiveRecord::Base
   self.table_name = 'reminders'
 
   belongs_to :project

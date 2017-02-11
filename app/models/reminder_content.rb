@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class reminderContent < ActiveRecord::Base
+class ReminderContent < ActiveRecord::Base
   belongs_to :reminder
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 

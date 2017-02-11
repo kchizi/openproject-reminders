@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class reminderContentsController < ApplicationController
+class ReminderContentsController < ApplicationController
   include PaginationHelper
   include OpenProject::Concerns::Preview
 
