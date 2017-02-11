@@ -59,7 +59,7 @@ class ReminderController < ApplicationController
     @reminder.participants_attributes = @converted_params.delete(:participants_attributes)
     @reminder.attributes = @converted_params
     if params[:copied_from_reminder_id].present? && params[:copied_reminder_agenda_text].present?
-      @reminder.agenda = reminderAgenda.new(
+      @reminder.agenda = ReminderAgenda.new(
         text: params[:copied_reminder_agenda_text],
         comment: "Copied from reminder ##{params[:copied_from_reminder_id]}")
       @reminder.agenda.author = User.current

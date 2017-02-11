@@ -59,7 +59,7 @@ module OpenProject::Reminder
       end
 
       Redmine::Activity.map do |activity|
-        activity.register :reminders, class_name: 'Activity::reminderActivityProvider', default: false
+        activity.register :reminders, class_name: 'Activity::ReminderActivityProvider', default: false
       end
     end
 

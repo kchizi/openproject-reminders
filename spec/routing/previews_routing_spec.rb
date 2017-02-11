@@ -29,14 +29,14 @@
 require 'spec_helper'
 
 describe 'preview', type: :routing do
-  it 'should connect POST /reminders/:reminder_id/agenda/preview to reminder_agendas#preview' do
-    expect(post('/reminders/1/agenda/preview')).to route_to(controller: 'reminder_agendas',
+  it 'should connect POST /reminder/:reminder_id/agenda/preview to reminder_agendas#preview' do
+    expect(post('/reminder/1/agenda/preview')).to route_to(controller: 'reminder_agendas',
                                                            reminder_id: '1',
                                                            action: 'preview')
   end
 
-  it 'should connect POST /reminders/:reminder_id/agenda/preview to reminder_minutes#preview' do
-    expect(post('/reminders/1/minutes/preview')).to route_to(controller: 'reminder_minutes',
+  it 'should connect POST /reminder/:reminder_id/agenda/preview to reminder_minutes#preview' do
+    expect(post('/reminder/1/minutes/preview')).to route_to(controller: 'reminder_minutes',
                                                             reminder_id: '1',
                                                             action: 'preview')
   end

@@ -26,7 +26,7 @@ class ReminderParticipant < ActiveRecord::Base
   scope :attended, -> { where(attended: true) }
 
   User.before_destroy do |user|
-    reminderParticipant.where(['user_id = ?', user.id]).update_all ['user_id = ?', DeletedUser.first]
+    ReminderParticipant.where(['user_id = ?', user.id]).update_all ['user_id = ?', DeletedUser.first]
   end
 
   def name
