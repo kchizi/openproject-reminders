@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class ReminderMinutes < reminderContent
+class ReminderMinutes < ReminderContent
   def editable?
     reminder.agenda.present? && reminder.agenda.locked?
   end

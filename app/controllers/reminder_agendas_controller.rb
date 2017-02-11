@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class ReminderAgendasController < reminderContentsController
+class ReminderAgendasController < ReminderContentsController
   menu_item :reminders
 
   def close

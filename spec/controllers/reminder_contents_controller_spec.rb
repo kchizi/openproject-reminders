@@ -33,7 +33,7 @@ describe ReminderContentsController do
 
   before(:each) do
     ActionMailer::Base.deliveries = []
-    allow_any_instance_of(reminderContentsController).to receive(:find_content)
+    allow_any_instance_of(ReminderContentsController).to receive(:find_content)
     allow(controller).to receive(:authorize)
     reminder.participants.merge([reminder.participants.build(user: watcher1, invited: true, attended: false),
                                 reminder.participants.build(user: watcher2, invited: true, attended: false)])

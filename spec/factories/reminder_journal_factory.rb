@@ -24,7 +24,7 @@ FactoryGirl.define do
     sequence(:version) { |n| n }
 
     factory :reminder_content_journal, class: Journal do
-      journable_type 'reminderContent'
+      journable_type 'ReminderContent'
       activity_type 'reminders'
       data FactoryGirl.build(:journal_reminder_content_journal)
     end

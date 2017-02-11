@@ -37,7 +37,7 @@ class LegacyreminderAgendaJournalData < ActiveRecord::Migration
   def migrator
     @migrator ||= Migration::LegacyJournalMigrator.new 'reminderAgendaJournal', 'reminder_content_journals' do
 
-      self.journable_class = 'reminderContent'
+      self.journable_class = 'ReminderContent'
 
       def migrate_key_value_pairs!(to_insert, _legacy_journal, _journal_id)
         if to_insert.has_key?('data')

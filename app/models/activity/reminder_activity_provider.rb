@@ -28,7 +28,7 @@ class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
     case activity
     when :reminder_content
       query.join(reminders_table).on(activity_journals_table(activity)[:reminder_id].eq(reminders_table[:id]))
-      join_cond = journal_table[:journable_type].eq('reminderContent')
+      join_cond = journal_table[:journable_type].eq('ReminderContent')
       query.join(reminder_contents_table).on(journal_table[:journable_id].eq(reminder_contents_table[:id]).and(join_cond))
     end
   end
@@ -53,7 +53,7 @@ class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
   end
 
   def activitied_type(activity)
-    (activity == :reminder) ? reminder : reminderContent
+    (activity == :reminder) ? reminder : ReminderContent
   end
 
   def projects_reference_table(activity)
@@ -70,7 +70,7 @@ class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
     when :reminder
       @activity_journals_table = JournalManager.journal_class(reminder).arel_table
     else
-      @activity_journals_table = JournalManager.journal_class(reminderContent).arel_table
+      @activity_journals_table = JournalManager.journal_class(ReminderContent).arel_table
     end
   end
 
@@ -130,7 +130,7 @@ class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
   end
 
   def reminder_contents_table
-    @reminder_contents_table ||= reminderContent.arel_table
+    @reminder_contents_table ||= ReminderContent.arel_table
   end
 
   def activity_id(event, activity)

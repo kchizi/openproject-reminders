@@ -34,7 +34,7 @@ class ReminderContent < ActiveRecord::Base
                 url: Proc.new { |o| { controller: '/reminders', action: 'show', id: o.reminder } }
 
   User.before_destroy do |user|
-    reminderContent.where(['author_id = ?', user.id]).update_all ['author_id = ?', DeletedUser.first]
+    ReminderContent.where(['author_id = ?', user.id]).update_all ['author_id = ?', DeletedUser.first]
   end
 
   def editable?
