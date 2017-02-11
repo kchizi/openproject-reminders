@@ -20,7 +20,7 @@
 
 require Rails.root.join('db', 'migrate', 'migration_utils', 'text_references').to_s
 
-class MigrateTextReferencesToWorkPackages < ActiveRecord::Migration
+class MigrateTextReferencesToWorkPackagesReminder < ActiveRecord::Migration
   include Migration::Utils
 
   COLUMNS_PER_TABLE = {
