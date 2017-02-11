@@ -20,7 +20,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe RemindersController, type: :controller do
+describe ReminderController, type: :controller do
   let(:project) { FactoryGirl.build :project }
 
   before do

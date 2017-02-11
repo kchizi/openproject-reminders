@@ -112,7 +112,7 @@ class ReminderContentsController < ApplicationController
   end
 
   def default_breadcrumb
-    remindersController.new.send(:default_breadcrumb)
+    ReminderController.new.send(:default_breadcrumb)
   end
 
   private
