@@ -26,10 +26,10 @@ class ReminderContentsController < ApplicationController
 
   helper :watchers
   helper :wiki
-  helper :reminders
+  helper :reminder
   helper :reminder_contents
   helper :watchers
-  helper :reminders
+  #helper :reminders
 
   before_action :find_reminder, :find_content
   before_action :authorize
