@@ -76,7 +76,7 @@ module OpenProject::Reminder
     end
 
     initializer 'reminder.register_latest_project_activity' do
-      Project.register_latest_project_activity on: ::reminder,
+      Project.register_latest_project_activity on: OpenProject::reminder,
                                                attribute: :updated_at
     end
 
