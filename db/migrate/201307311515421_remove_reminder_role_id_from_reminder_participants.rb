@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-class RemovereminderRoleIdFromReminderParticipants < ActiveRecord::Migration
+class RemoveReminderRoleIdFromReminderParticipants < ActiveRecord::Migration
   def up
     remove_column :reminder_participants, :reminder_role_id
   end
