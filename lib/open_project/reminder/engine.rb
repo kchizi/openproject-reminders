@@ -20,7 +20,7 @@
 
 require 'open_project/plugins'
 
-module OpenProject::reminder
+module OpenProject::Reminder
   class Engine < ::Rails::Engine
     engine_name :openproject_reminder
 

@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-module OpenProject::reminder
+module OpenProject::Reminder
   class Hooks < Redmine::Hook::ViewListener
     render_on :activity_index_head,
               partial: 'hooks/reminders/activity_index_head'
