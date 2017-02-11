@@ -21,7 +21,7 @@
 require Rails.root.join('db', 'migrate', 'migration_utils', 'migration_squasher').to_s
 require 'open_project/plugins/migration_mapping'
 # This migration aggregates the migrations detailed in MIGRATION_FILES
-class AggregatedReminderMigrations < ActiveRecord::Migration
+class AggregatedReminderReminders < ActiveRecord::Migration
   MIGRATION_FILES = <<-MIGRATIONS
     20110106210555_create_reminders.rb
     20110106221214_create_reminder_contents.rb
