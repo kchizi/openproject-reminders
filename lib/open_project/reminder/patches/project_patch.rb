@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-module OpenProject::reminder
+module OpenProject::Reminder
   module Patches
     module ProjectPatch
       def self.included(receiver)
@@ -30,4 +30,4 @@ module OpenProject::reminder
   end
 end
 
-Project.send(:include, OpenProject::reminder::Patches::ProjectPatch)
+Project.send(:include, OpenProject::Reminder::Patches::ProjectPatch)
