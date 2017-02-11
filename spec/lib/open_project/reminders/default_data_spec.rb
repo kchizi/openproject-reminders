@@ -28,15 +28,15 @@
 
 require 'spec_helper'
 
-describe OpenProject::reminder::DefaultData do
+describe OpenProject::Reminder::DefaultData do
   let(:seeder) { BasicData::RoleSeeder.new }
 
   let(:roles) { [member, reader] }
-  let(:member) { OpenProject::reminder::DefaultData.member_role }
-  let(:reader) { OpenProject::reminder::DefaultData.reader_role }
+  let(:member) { OpenProject::Reminder::DefaultData.member_role }
+  let(:reader) { OpenProject::Reminder::DefaultData.reader_role }
 
-  let(:member_permissions) { OpenProject::reminder::DefaultData.member_permissions }
-  let(:reader_permissions) { OpenProject::reminder::DefaultData.reader_permissions }
+  let(:member_permissions) { OpenProject::Reminder::DefaultData.member_permissions }
+  let(:reader_permissions) { OpenProject::Reminder::DefaultData.reader_permissions }
 
   before do
     allow(seeder).to receive(:builtin_roles).and_return([])

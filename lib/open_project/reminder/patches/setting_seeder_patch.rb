@@ -18,7 +18,7 @@
 # See doc/COPYRIGHT.md for more details.
 #++
 
-module OpenProject::reminder::Patches::SettingSeederPatch
+module OpenProject::Reminder::Patches::SettingSeederPatch
   def self.included(base) # :nodoc:
     base.prepend InstanceMethods
   end

@@ -17,7 +17,7 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #++
 
-module OpenProject::reminder::Patches::RoleSeederPatch
+module OpenProject::Reminder::Patches::RoleSeederPatch
   def self.included(base) # :nodoc:
     base.prepend InstanceMethods
   end
@@ -25,7 +25,7 @@ module OpenProject::reminder::Patches::RoleSeederPatch
   module InstanceMethods
     def seed_data!
       super.tap do |_|
-        OpenProject::reminder::DefaultData.load!
+        OpenProject::Reminder::DefaultData.load!
       end
     end
   end
