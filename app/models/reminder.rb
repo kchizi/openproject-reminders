@@ -74,7 +74,7 @@ class Reminder < ActiveRecord::Base
   after_initialize :set_initial_values
 
   User.before_destroy do |user|
-    reminder.where(['author_id = ?', user.id]).update_all ['author_id = ?', DeletedUser.first.id]
+    Reminder.where(['author_id = ?', user.id]).update_all ['author_id = ?', DeletedUser.first.id]
   end
 
   ##
