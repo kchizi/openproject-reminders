@@ -83,7 +83,7 @@ class ReminderContentsController < ApplicationController
 
   def notify
     unless @content.new_record?
-      service = reminderNotificationService.new(@reminder, @content_type)
+      service = ReminderNotificationService.new(@reminder, @content_type)
       result = service.call(@content, :content_for_review)
 
       if result.success?
@@ -98,7 +98,7 @@ class ReminderContentsController < ApplicationController
 
   def icalendar
     unless @content.new_record?
-      service = reminderNotificationService.new(@reminder, @content_type)
+      service = ReminderNotificationService.new(@reminder, @content_type)
       result = service.call(@content, :icalendar_notification)
 
       if result.success?
@@ -118,7 +118,7 @@ class ReminderContentsController < ApplicationController
   private
 
   def find_reminder
-    @reminder = reminder.includes(:project, :author, :participants, :agenda, :minutes)
+    @reminder = Reminder.includes(:project, :author, :participants, :agenda, :minutes)
                .find(params[:reminder_id])
     @project = @reminder.project
     @author = User.current
