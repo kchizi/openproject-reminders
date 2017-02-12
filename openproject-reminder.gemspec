@@ -8,8 +8,8 @@ require 'open_project/reminder/version'
 Gem::Specification.new do |s|
   s.name        = 'openproject-reminder'
   s.version     = OpenProject::Reminder::VERSION
-  s.authors     = 'OpenProject GmbH'
-  s.email       = 'info@openproject.com'
+  s.authors     = 'Medulla Technologies'
+  s.email       = 'support@medullatechnologies.com'
   s.homepage    = 'https://community.openproject.org/projects/plugin-reminders'
   s.summary     = 'OpenProject reminder'
   s.description = "This plugin adds functions to support project reminders to OpenProject. reminders
