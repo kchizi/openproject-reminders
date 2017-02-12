@@ -66,7 +66,7 @@ class ReminderContent < ActiveRecord::Base
 
   # Show the project on activity and search views
   def project
-    reminder.project
+    Reminder.project
   end
 
   # Provided for compatibility of the old pre-journalized migration

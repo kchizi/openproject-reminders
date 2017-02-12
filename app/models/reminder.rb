@@ -23,10 +23,10 @@ class Reminder < ActiveRecord::Base
 
   belongs_to :project
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
-  has_one :agenda, dependent: :destroy, class_name: 'reminderAgenda'
-  has_one :minutes, dependent: :destroy, class_name: 'reminderMinutes'
+  has_one :agenda, dependent: :destroy, class_name: 'ReminderAgenda'
+  has_one :minutes, dependent: :destroy, class_name: 'ReminderMinutes'
   has_many :contents, -> { readonly }, class_name: 'ReminderContent'
-  has_many :participants, dependent: :destroy, class_name: 'reminderParticipant'
+  has_many :participants, dependent: :destroy, class_name: 'ReminderParticipant'
 
   default_scope {
     order("#{reminder.table_name}.start_time DESC")
