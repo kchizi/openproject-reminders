@@ -32,11 +32,11 @@ module ReminderNavigationHelpers
       "/projects/#{project.identifier}/activity?show_#{$1}=1"
 
     when /^the show page (?:of|for) the reminder called "(.+?)"$/
-      reminder = reminder.find_by_title($1)
+      reminder = Reminder.find_by_title($1)
 
       "/reminders/#{reminder.id}"
     when /^the edit page (?:of|for) the reminder called "(.+?)"$/
-      reminder = reminder.find_by_title($1)
+      reminder = Reminder.find_by_title($1)
 
       "/reminders/#{reminder.id}/edit"
     else
@@ -45,4 +45,4 @@ module ReminderNavigationHelpers
   end
 end
 
-World(reminderNavigationHelpers)
+World(ReminderNavigationHelpers)

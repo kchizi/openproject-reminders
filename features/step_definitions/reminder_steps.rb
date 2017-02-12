@@ -36,39 +36,39 @@ Given /^there is (\d+) [Mm]eetings? in project "(.+)" that start (.*) days? from
 end
 
 Given /^the [Mm]eeting "(.+)" has 1 agenda with:$/ do |reminder, table|
-  m = reminder.find_by_title(reminder)
-  ma = reminderAgenda.find_by_reminder_id(m.id) || FactoryGirl.build(:reminder_agenda, reminder: m)
+  m = Reminder.find_by_title(reminder)
+  ma = ReminderAgenda.find_by_reminder_id(m.id) || FactoryGirl.build(:reminder_agenda, reminder: m)
   send_table_to_object(ma, table)
 end
 
 Given /^the [Mm]eeting "(.+)" has 1 agenda$/ do |reminder|
-  m = reminder.find_by_title(reminder)
+  m = Reminder.find_by_title(reminder)
   m.agenda ||= FactoryGirl.build(:reminder_agenda)
   m.save!
 end
 
 Given /^the [Mm]eeting "(.+)" has minutes with:$/ do |reminder, table|
-  m = reminder.find_by_title(reminder)
+  m = Reminder.find_by_title(reminder)
   mm = reminderMinutes.find_by_reminder_id(m.id) || FactoryGirl.build(:reminder_minutes, reminder: m)
   send_table_to_object(mm, table)
 end
 
 Given /^"(.+)" is invited to the [Mm]eeting "(.+)"$/ do |user, reminder|
-  m = reminder.find_by_title(reminder)
+  m = Reminder.find_by_title(reminder)
   p = m.participants.detect { |p| p.user_id = User.find_by_login(user).id } || FactoryGirl.build(:reminder_participant, reminder: m)
   p.invited = true
   p.save
 end
 
 Given /^"(.+)" attended the [Mm]eeting "(.+)"$/ do |user, reminder|
-  m = reminder.find_by_title(reminder)
+  m = Reminder.find_by_title(reminder)
   p = m.participants.detect { |p| p.user_id = User.find_by_login(user).id } || FactoryGirl.build(:reminder_participant, reminder: m)
   p.attended = true
   p.save
 end
 
 When /the agenda of the reminder "(.+)" changes meanwhile/ do |reminder|
-  m = reminder.find_by_title(reminder)
+  m = Reminder.find_by_title(reminder)
   m.agenda.text = 'oder oder?'
   m.agenda.save!
 end
