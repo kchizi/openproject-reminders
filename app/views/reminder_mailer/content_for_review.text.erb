@@ -23,9 +23,9 @@ See doc/COPYRIGHT.md for more details.
 <%= @reminder.author %>
 
 <%=t :label_reminder_date_time %>: <%= format_date @reminder.start_time %> <%= format_time @reminder.start_time, false %>-<%= format_time @reminder.end_time, false %> <%= Time.zone %>
-<%= reminder.human_attribute_name(:location) %>: <%= @reminder.location %>
-<%= reminder.human_attribute_name(:participants_invited) %>: <%= @reminder.participants.invited.sort.join("; ") %>
-<%= reminder.human_attribute_name(:participants_attended) %>: <%= @reminder.participants.attended.sort.join("; ") %>
+<%= Reminder.human_attribute_name(:location) %>: <%= @reminder.location %>
+<%= Reminder.human_attribute_name(:participants_invited) %>: <%= @reminder.participants.invited.sort.join("; ") %>
+<%= Reminder.human_attribute_name(:participants_attended) %>: <%= @reminder.participants.attended.sort.join("; ") %>
 
 <%=t(:"text_review_#{@content_type}",
      :author => User.current,

@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://community.openproject.org/projects/plugin-reminders'
   s.summary     = 'OpenProject reminder'
   s.description = "This plugin adds functions to support project reminders to OpenProject. reminders
-    can be scheduled selecting invitees from the same project to take part in the reminder. An agenda
+    can be scheduled selecting invitees from the same project to take part in the Reminder. An agenda
     can be created and sent to the invitees. After the reminder, attendees can be selected and
     minutes can be created based on the agenda. Finally, the minutes can be sent to all attendees
     and invitees."

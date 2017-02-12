@@ -35,15 +35,15 @@ describe ReminderContentsController do
     ActionMailer::Base.deliveries = []
     allow_any_instance_of(ReminderContentsController).to receive(:find_content)
     allow(controller).to receive(:authorize)
-    reminder.participants.merge([reminder.participants.build(user: watcher1, invited: true, attended: false),
-                                reminder.participants.build(user: watcher2, invited: true, attended: false)])
-    reminder.save!
+    Reminder.participants.merge([reminder.participants.build(user: watcher1, invited: true, attended: false),
+                                Reminder.participants.build(user: watcher2, invited: true, attended: false)])
+    Reminder.save!
     controller.instance_variable_set(:@content, reminder_agenda.reminder.agenda)
     controller.instance_variable_set(:@content_type, 'reminder_agenda')
   end
 
   shared_examples_for 'delivered by mail' do
-    before { put 'notify', reminder_id: reminder.id }
+    before { put 'notify', reminder_id: Reminder.id }
 
     it { expect(ActionMailer::Base.deliveries.count).to eql(mail_count) }
   end
@@ -80,12 +80,12 @@ describe ReminderContentsController do
         end
 
         it 'does not raise an error' do
-          expect { put 'notify', reminder_id: reminder.id }.to_not raise_error
+          expect { put 'notify', reminder_id: Reminder.id }.to_not raise_error
         end
 
         it 'produces a flash message containing the mail addresses raising the error' do
-          put 'notify', reminder_id: reminder.id
-          reminder.participants.each do |participant|
+          put 'notify', reminder_id: Reminder.id
+          Reminder.participants.each do |participant|
             expect(flash[:error]).to include(participant.name)
           end
         end

@@ -30,8 +30,8 @@ describe Reminder, type: :model do
   let(:user2) { FactoryGirl.create(:user) }
   let(:reminder) { FactoryGirl.create(:reminder, project: project, author: user1) }
   let(:agenda) do
-    reminder.create_agenda text: 'reminder Agenda text'
-    reminder.agenda(true) # avoiding stale object errors
+    Reminder.create_agenda text: 'reminder Agenda text'
+    Reminder.agenda(true) # avoiding stale object errors
   end
 
   let(:role) { FactoryGirl.create(:role, permissions: [:view_reminders]) }
@@ -147,7 +147,7 @@ describe Reminder, type: :model do
     describe 'WITH a user being locked but invited' do
       let(:locked_user) { FactoryGirl.create(:locked_user) }
       before do
-        reminder.participants_attributes = [{ 'user_id' => locked_user.id, 'invited' => 1 }]
+        Reminder.participants_attributes = [{ 'user_id' => locked_user.id, 'invited' => 1 }]
       end
 
       it 'should contain the user' do
@@ -163,8 +163,8 @@ describe Reminder, type: :model do
 
       project.save!
 
-      reminder.participants.build(user: user2)
-      reminder.save!
+      Reminder.participants.build(user: user2)
+      Reminder.save!
     end
 
     it { expect(reminder.watchers.collect(&:user)).to match_array([user1, user2]) }
@@ -174,7 +174,7 @@ describe Reminder, type: :model do
     before do
       agenda # creating it
 
-      reminder.close_agenda_and_copy_to_minutes!
+      Reminder.close_agenda_and_copy_to_minutes!
     end
 
     it "should create a reminder with the agenda's text" do
@@ -214,29 +214,29 @@ describe Reminder, type: :model do
 
       project.save!
 
-      reminder.start_date = '2013-03-27'
-      reminder.start_time_hour = '15:35'
-      reminder.participants.build(user: user2)
-      reminder.save!
+      Reminder.start_date = '2013-03-27'
+      Reminder.start_time_hour = '15:35'
+      Reminder.participants.build(user: user2)
+      Reminder.save!
     end
 
     it 'should have the same start_time as the original reminder' do
-      copy = reminder.copy({})
+      copy = Reminder.copy({})
       expect(copy.start_time).to eq(reminder.start_time)
     end
 
     it 'should delete the copied reminder author if no author is given as parameter' do
-      copy = reminder.copy({})
+      copy = Reminder.copy({})
       expect(copy.author).to be_nil
     end
 
     it 'should set the author to the provided author if one is given' do
-      copy = reminder.copy author: user2
+      copy = Reminder.copy author: user2
       expect(copy.author).to eq(user2)
     end
 
     it 'should clear participant ids and attended flags for all copied attendees' do
-      copy = reminder.copy({})
+      copy = Reminder.copy({})
       expect(copy.participants.all? { |p| p.id.nil? && !p.attended }).to be_truthy
     end
   end

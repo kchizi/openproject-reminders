@@ -15,11 +15,11 @@ class ReminderNotificationService
   private
 
   def send_notifications!(content, action)
-    author_mail = reminder.author.mail
-    do_not_notify_author = reminder.author.pref[:no_self_notified]
+    author_mail = Reminder.author.mail
+    do_not_notify_author = Reminder.author.pref[:no_self_notified]
 
     recipients_with_errors = []
-    reminder.participants.each do |recipient|
+    Reminder.participants.each do |recipient|
       begin
         next if recipient.mail == author_mail && do_not_notify_author
         reminderMailer.send(action, content, content_type, recipient.mail).deliver_now

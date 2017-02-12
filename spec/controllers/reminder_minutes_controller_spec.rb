@@ -33,11 +33,11 @@ describe ReminderMinutesController, type: :controller do
 
     it_behaves_like 'valid preview' do
       let(:preview_texts) { [text] }
-      let(:preview_params) { { reminder_id: reminder.id, reminder_minutes: { text: text } } }
+      let(:preview_params) { { reminder_id: Reminder.id, reminder_minutes: { text: text } } }
     end
 
     it_behaves_like 'authorizes object access' do
-      let(:preview_params) { { reminder_id: reminder.id, reminder_minutes: {} } }
+      let(:preview_params) { { reminder_id: Reminder.id, reminder_minutes: {} } }
     end
   end
 end

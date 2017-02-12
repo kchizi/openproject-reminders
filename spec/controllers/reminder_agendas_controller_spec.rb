@@ -31,11 +31,11 @@ describe ReminderAgendasController, type: :controller do
 
     it_behaves_like 'valid preview' do
       let(:preview_texts) { [text] }
-      let(:preview_params) { { reminder_id: reminder.id, reminder_agenda: { text: text } } }
+      let(:preview_params) { { reminder_id: Reminder.id, reminder_agenda: { text: text } } }
     end
 
     it_behaves_like 'authorizes object access' do
-      let(:preview_params) { { reminder_id: reminder.id, reminder_agenda: {} } }
+      let(:preview_params) { { reminder_id: Reminder.id, reminder_agenda: {} } }
     end
   end
 end

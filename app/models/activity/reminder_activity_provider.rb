@@ -126,7 +126,7 @@ class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
   private
 
   def reminders_table
-    @reminders_table ||= reminder.arel_table
+    @reminders_table ||= Reminder.arel_table
   end
 
   def reminder_contents_table

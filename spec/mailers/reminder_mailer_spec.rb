@@ -34,9 +34,9 @@ describe ReminderMailer, type: :mailer do
   before(:each) do
     author.pref[:no_self_notified] = false
     author.save!
-    reminder.participants.merge([reminder.participants.build(user: watcher1, invited: true, attended: false),
-                                reminder.participants.build(user: watcher2, invited: true, attended: false)])
-    reminder.save!
+    Reminder.participants.merge([reminder.participants.build(user: watcher1, invited: true, attended: false),
+                                Reminder.participants.build(user: watcher2, invited: true, attended: false)])
+    Reminder.save!
   end
 
   describe 'content_for_review' do
@@ -69,9 +69,9 @@ describe ReminderMailer, type: :mailer do
   def check_reminder_mail_content(body)
     expect(body).to include(reminder.project.name)
     expect(body).to include(reminder.title)
-    expect(body).to include(i18n.format_date reminder.start_date)
-    expect(body).to include(i18n.format_time reminder.start_time, false)
-    expect(body).to include(i18n.format_time reminder.end_time, false)
+    expect(body).to include(i18n.format_date Reminder.start_date)
+    expect(body).to include(i18n.format_time Reminder.start_time, false)
+    expect(body).to include(i18n.format_time Reminder.end_time, false)
     expect(body).to include(reminder.participants[0].name)
     expect(body).to include(reminder.participants[1].name)
   end

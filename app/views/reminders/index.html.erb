@@ -46,14 +46,14 @@ See doc/COPYRIGHT.md for more details.
     <h4 id="<%= date.strftime("%m-%d-%Y") %>" class="date"><%= format_activity_day(date) %></h4>
     <dl class="reminders">
     <% reminders.each do |reminder| -%>
-      <dt class="reminder" id="reminder-<%= reminder.id %>">
+      <dt class="reminder" id="reminder-<%= Reminder.id %>">
         <%= link_to h(reminder.title), :controller => '/reminders', :action => 'show', :id => reminder %>
       </dt>
-      <dd class="reminder" id="reminder-<%= reminder.id %>">
-        <p><strong><%= reminder.human_attribute_name(:time) %></strong>: <%= format_time reminder.start_time, false %>-<%= format_time reminder.end_time, false %></p>
-        <p><strong><%= reminder.human_attribute_name(:location) %></strong>: <%=h reminder.location %></p>
-        <p><strong><%= reminder.human_attribute_name(:participants_invited) %></strong> (<%= reminder.participants.select(&:invited).count %>): <%= format_participant_list reminder.participants.select(&:invited) %></p>
-        <p><strong><%= reminder.human_attribute_name(:participants_attended) %></strong> (<%= reminder.participants.select(&:attended).count %>): <%= format_participant_list reminder.participants.select(&:attended) %></p>
+      <dd class="reminder" id="reminder-<%= Reminder.id %>">
+        <p><strong><%= Reminder.human_attribute_name(:time) %></strong>: <%= format_time Reminder.start_time, false %>-<%= format_time Reminder.end_time, false %></p>
+        <p><strong><%= Reminder.human_attribute_name(:location) %></strong>: <%=h Reminder.location %></p>
+        <p><strong><%= Reminder.human_attribute_name(:participants_invited) %></strong> (<%= Reminder.participants.select(&:invited).count %>): <%= format_participant_list Reminder.participants.select(&:invited) %></p>
+        <p><strong><%= Reminder.human_attribute_name(:participants_attended) %></strong> (<%= Reminder.participants.select(&:attended).count %>): <%= format_participant_list Reminder.participants.select(&:attended) %></p>
       </dd>
     <% end -%>
     </dl>

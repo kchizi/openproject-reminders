@@ -20,6 +20,6 @@
 
 class ReminderMinutes < ReminderContent
   def editable?
-    reminder.agenda.present? && reminder.agenda.locked?
+    Reminder.agenda.present? && Reminder.agenda.locked?
   end
 end

@@ -48,20 +48,20 @@ describe Project::Activity, type: :model do
 
   describe '.with_latest_activity' do
     it 'is the latest reminder update' do
-      reminder.update_attribute(:updated_at, initial_time - 10.seconds)
+      Reminder.update_attribute(:updated_at, initial_time - 10.seconds)
       reminder2.update_attribute(:updated_at, initial_time - 20.seconds)
-      reminder.reload
+      Reminder.reload
       reminder2.reload
 
-      expect(latest_activity).to eql reminder.updated_at
+      expect(latest_activity).to eql Reminder.updated_at
     end
 
     it 'takes the time stamp of the latest activity across models' do
       work_package.update_attribute(:updated_at, initial_time - 10.seconds)
-      reminder.update_attribute(:updated_at, initial_time - 20.seconds)
+      Reminder.update_attribute(:updated_at, initial_time - 20.seconds)
 
       work_package.reload
-      reminder.reload
+      Reminder.reload
 
       # Order:
       # work_package
@@ -69,13 +69,13 @@ describe Project::Activity, type: :model do
 
       expect(latest_activity).to eql work_package.updated_at
 
-      work_package.update_attribute(:updated_at, reminder.updated_at - 10.seconds)
+      work_package.update_attribute(:updated_at, Reminder.updated_at - 10.seconds)
 
       # Order:
       # reminder
       # work_package
 
-      expect(latest_activity).to eql reminder.updated_at
+      expect(latest_activity).to eql Reminder.updated_at
     end
   end
 end

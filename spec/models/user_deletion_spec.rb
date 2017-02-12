@@ -190,7 +190,7 @@ describe User, '#destroy', type: :model do
       # user2 added to participants by beeing the author
 
       user.destroy
-      reminder.reload
+      Reminder.reload
       participant.reload
     end
 

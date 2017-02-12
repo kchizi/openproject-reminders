@@ -63,16 +63,16 @@ See doc/COPYRIGHT.md for more details.
       <p class="author"><%= authoring @reminder.created_at, @reminder.author %></p>
     </div>
     <div class="grid-content small-6">
-      <p><strong><%= reminder.human_attribute_name(:start_time) %></strong>: <%= format_date @reminder.start_time %> <%= format_time @reminder.start_time, false %> - <%= format_time @reminder.end_time, false %> <%= Time.zone %></p>
+      <p><strong><%= Reminder.human_attribute_name(:start_time) %></strong>: <%= format_date @reminder.start_time %> <%= format_time @reminder.start_time, false %> - <%= format_time @reminder.end_time, false %> <%= Time.zone %></p>
     </div>
     <div class="grid-content small-6">
-      <p><strong><%= reminder.human_attribute_name(:location) %></strong>: <%=h @reminder.location %></p>
+      <p><strong><%= Reminder.human_attribute_name(:location) %></strong>: <%=h @reminder.location %></p>
     </div>
     <div class="grid-content small-12">
-      <p><strong><%= reminder.human_attribute_name(:participants_invited) %></strong>: <%= format_participant_list @reminder.participants.invited %></p>
+      <p><strong><%= Reminder.human_attribute_name(:participants_invited) %></strong>: <%= format_participant_list @reminder.participants.invited %></p>
     </div>
     <div class="grid-content small-12">
-      <p><strong><%= reminder.human_attribute_name(:participants_attended) %></strong>: <%= format_participant_list @reminder.participants.attended %></p>
+      <p><strong><%= Reminder.human_attribute_name(:participants_attended) %></strong>: <%= format_participant_list @reminder.participants.attended %></p>
     </div>
   </div>
 </div>

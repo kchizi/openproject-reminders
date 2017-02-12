@@ -33,7 +33,7 @@ See doc/COPYRIGHT.md for more details.
 
   <div class="form--field">
     <label for="reminder-form-start-date" class="form--label -required">
-      <span aria-hidden="true"><%= reminder.human_attribute_name(:start_date) %>
+      <span aria-hidden="true"><%= Reminder.human_attribute_name(:start_date) %>
         <span class="form--label-required" aria-hidden="true">*</span>
       </span>
       <span class="hidden-for-sighted"><%= l(:label_start_date)%>
@@ -48,7 +48,7 @@ See doc/COPYRIGHT.md for more details.
             no_label: true %>
       <%= calendar_for('reminder-form-start-date') %>
       <label for="reminder-form-start-time" class="hidden-for-sighted">
-        <%= reminder.human_attribute_name(:start_time) %>
+        <%= Reminder.human_attribute_name(:start_time) %>
         <label lang="en">
           <%= l(:label_time_zone) %>
           <%= Time.zone.to_s %>
@@ -66,7 +66,7 @@ See doc/COPYRIGHT.md for more details.
 
   <div class="form--field">
     <label for="reminder-form-duration" class="form--label -required">
-      <span><%= reminder.human_attribute_name(:duration) %>
+      <span><%= Reminder.human_attribute_name(:duration) %>
         <span class="form--label-required" aria-hidden="true">*</span>
       </span>
     </label>
@@ -90,9 +90,9 @@ See doc/COPYRIGHT.md for more details.
       <table class="form--matrix">
         <thead>
           <tr class="form--matrix-header-row">
-            <th class="form--matrix-header-cell"><%= reminder.human_attribute_name(:name) %></th>
-            <th class="form--matrix-header-cell"><%= reminder.human_attribute_name(:participants_invited) %></th>
-            <th class="form--matrix-header-cell"><%= reminder.human_attribute_name(:participants_attended) %></th>
+            <th class="form--matrix-header-cell"><%= Reminder.human_attribute_name(:name) %></th>
+            <th class="form--matrix-header-cell"><%= Reminder.human_attribute_name(:participants_invited) %></th>
+            <th class="form--matrix-header-cell"><%= Reminder.human_attribute_name(:participants_attended) %></th>
           </tr>
         </thead>
         <tbody>
