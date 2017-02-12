@@ -29,11 +29,11 @@ class Reminder < ActiveRecord::Base
   has_many :participants, dependent: :destroy, class_name: 'ReminderParticipant'
 
   default_scope {
-    order("#{reminder.table_name}.start_time DESC")
+    order("#{Reminder.table_name}.start_time DESC")
   }
   scope :from_tomorrow, -> { where(['start_time >= ?', Date.tomorrow.beginning_of_day]) }
   scope :with_users_by_date, -> {
-    order("#{reminder.table_name}.title ASC")
+    order("#{Reminder.table_name}.title ASC")
       .includes({ participants: :user }, :author)
   }
 
