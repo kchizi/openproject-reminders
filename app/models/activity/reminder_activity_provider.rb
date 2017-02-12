@@ -53,7 +53,7 @@ class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
   end
 
   def activitied_type(activity)
-    (activity == :reminder) ? reminder : ReminderContent
+    (activity == :reminder) ? Reminder : ReminderContent
   end
 
   def projects_reference_table(activity)
@@ -68,7 +68,7 @@ class Activity::ReminderActivityProvider < Activity::BaseActivityProvider
   def activity_journals_table(activity)
     case activity
     when :reminder
-      @activity_journals_table = JournalManager.journal_class(reminder).arel_table
+      @activity_journals_table = JournalManager.journal_class(Reminder).arel_table
     else
       @activity_journals_table = JournalManager.journal_class(ReminderContent).arel_table
     end
