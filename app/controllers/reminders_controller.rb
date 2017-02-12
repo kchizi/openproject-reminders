@@ -47,7 +47,7 @@ class RemindersController < ApplicationController
                 .page(page)
                 .per_page(per_page_param)
 
-    @reminders_by_start_year_month_date = reminder.group_by_time(@reminders)
+    @reminders_by_start_year_month_date = Reminder.group_by_time(@reminders)
   end
 
   def show
