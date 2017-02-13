@@ -24,9 +24,9 @@ See doc/COPYRIGHT.md for more details.
 
 <ul>
 <li><%=t :label_reminder_date_time %>: <%= format_date @reminder.start_time %> <%= format_time @reminder.start_time, false %>-<%= format_time @reminder.end_time, false %> <%= Time.zone %></li>
-<li><%=reminder.human_attribute_name(:location) %>: <%= @reminder.location %></li>
-<li><%=reminder.human_attribute_name(:participants_invited) %>: <%= @reminder.participants.invited.sort.join("; ") %></li>
-<li><%=reminder.human_attribute_name(:participants_attended) %>: <%= @reminder.participants.attended.sort.join("; ") %></li>
+<li><%=Reminder.human_attribute_name(:location) %>: <%= @reminder.location %></li>
+<li><%=Reminder.human_attribute_name(:participants_invited) %>: <%= @reminder.participants.invited.sort.join("; ") %></li>
+<li><%=Reminder.human_attribute_name(:participants_attended) %>: <%= @reminder.participants.attended.sort.join("; ") %></li>
 </ul>
 
 <p>
