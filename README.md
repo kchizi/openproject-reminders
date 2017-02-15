@@ -23,7 +23,7 @@ Installation
 
 Add the following line to the `Gemfile.plugins` to your OpenProject installation (if you use a different OpenProject version than OpenProject 5, adapt `:branch => "stable/5"` to your OpenProject version):
 
-`gem "openproject-reminder", :git => "https://github.com/finnlabs/openproject-reminder.git", :branch => "stable/5"`
+`gem "openproject-reminder", :git => "https://github.com/kchizi/openproject-reminder.git", :branch => "stable/5"`
 
 Afterwards, run:
 
@@ -38,7 +38,7 @@ Deinstallation
 
 Remove the line
 
-`gem "openproject-reminder", :git => "https://github.com/finnlabs/openproject-reminder.git", :branch => "stable/5"`
+`gem "openproject-reminder", :git => "https://github.com/kchizi/openproject-reminder.git", :branch => "stable/5"`
 
 from the file `Gemfile.plugins` and run:
 
@@ -59,7 +59,7 @@ Development
 
 To contribute, you can create pull request on the official repository at
 
-`https://github.com/finnlabs/openproject-reminder`
+`https://github.com/kchizi/openproject-reminder`
 
 Credits
 -------
